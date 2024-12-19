@@ -30,10 +30,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		A276421C2D10A34B00839B5A /* Exceptions for "DayTrack" folder in "DayTrack" target */ = {
+		A26E49962D149D48009F372F /* Exceptions for "DayTrack" folder in "DayTrack" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				App/Info.plist,
 			);
 			target = A27641F32D10A34900839B5A /* DayTrack */;
 		};
@@ -43,7 +43,7 @@
 		A27641F62D10A34900839B5A /* DayTrack */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				A276421C2D10A34B00839B5A /* Exceptions for "DayTrack" folder in "DayTrack" target */,
+				A26E49962D149D48009F372F /* Exceptions for "DayTrack" folder in "DayTrack" target */,
 			);
 			path = DayTrack;
 			sourceTree = "<group>";
@@ -291,10 +291,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A32VY273J6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DayTrack/Info.plist;
+				INFOPLIST_FILE = DayTrack/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -324,10 +323,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A32VY273J6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DayTrack/Info.plist;
+				INFOPLIST_FILE = DayTrack/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
