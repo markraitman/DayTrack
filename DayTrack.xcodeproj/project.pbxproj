@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A229F0802D15890C00302C65 /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = A229F07F2D15890C00302C65 /* CalendarKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A276420B2D10A34B00839B5A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A229F0802D15890C00302C65 /* CalendarKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 			);
 			name = DayTrack;
 			packageProductDependencies = (
+				A229F07F2D15890C00302C65 /* CalendarKit */,
 			);
 			productName = DayTrack;
 			productReference = A27641F42D10A34900839B5A /* DayTrack.app */;
@@ -208,6 +214,9 @@
 			);
 			mainGroup = A27641EB2D10A34900839B5A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A229F07E2D15880700302C65 /* XCRemoteSwiftPackageReference "CalendarKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A27641F52D10A34900839B5A /* Products */;
 			projectDirPath = "";
@@ -577,6 +586,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A229F07E2D15880700302C65 /* XCRemoteSwiftPackageReference "CalendarKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/richardtop/CalendarKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.11;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A229F07F2D15890C00302C65 /* CalendarKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A229F07E2D15880700302C65 /* XCRemoteSwiftPackageReference "CalendarKit" */;
+			productName = CalendarKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A27641EC2D10A34900839B5A /* Project object */;
 }
