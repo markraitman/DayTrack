@@ -10,12 +10,21 @@ import CalendarKit
 import EventKit
 
 class CalendarViewController: DayViewController  {
-
+    
+    // MARK: - Properties
+    private let eventStore = EKEventStore()
+    
+    
+    // MARK: - UI Components
+    
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         title = "Calendar"
+        
+        requestAccessToCalendar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +38,16 @@ class CalendarViewController: DayViewController  {
         navigationController?.navigationBar.backgroundColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
+    
+    
+    // MARK: - Methods
+    func requestAccessToCalendar() {
+        eventStore.requestAccess(to: .event) {success, error in
+            
+        }
+    }
+    
+
 
 }
 
