@@ -10,7 +10,7 @@ import CalendarKit
 import EventKit
 import EventKitUI
 
-class CalendarViewController: DayViewController  {
+class CalendarViewController: DayViewController, EKEventEditViewDelegate  {
     
     // MARK: - Properties
     private let eventStore = EKEventStore()
@@ -61,6 +61,10 @@ class CalendarViewController: DayViewController  {
     
     @objc private func storeChanged(_ notification: Notification) {
         reloadData()
+        
+        if let topController = navigationController?.topViewController, topController is EKEventViewController {
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     override func dayViewDidSelectEventView(_ eventView: EventView) {
@@ -85,9 +89,27 @@ class CalendarViewController: DayViewController  {
         if let originalEvent = event.editedEvent {
             editingEvent.commitEditing()
             
-            try! eventStore.save(editingEvent.ekEvent, span: .thisEvent)
+            if originalEvent === editingEvent {
+                presentEditingViewForEvent(editingEvent.ekEvent)
+            } else {
+                try! eventStore.save(editingEvent.ekEvent, span: .thisEvent)
+            }
         }
         reloadData()
+    }
+    
+    private func presentEditingViewForEvent(_ ekEvent: EKEvent) {
+        let eventEditViewController = EKEventEditViewController()
+        eventEditViewController.event = ekEvent
+        eventEditViewController.eventStore = eventStore
+        eventEditViewController.editViewDelegate = self
+        present(eventEditViewController, animated: true, completion: nil)
+    }
+    
+    func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+        endEventEditing()
+        reloadData()
+        controller.dismiss(animated: true, completion: nil)
     }
     
     override func dayView(dayView: DayView, didTapTimelineAt date: Date) {
@@ -99,7 +121,7 @@ class CalendarViewController: DayViewController  {
     }
     
     override func dayView(dayView: DayView, didLongPressTimelineAt date: Date) {
-         let newEKEvent = EKEvent(eventStore: eventStore)
+        let newEKEvent = EKEvent(eventStore: eventStore)
         newEKEvent.calendar = eventStore.defaultCalendarForNewEvents
         
         var oneHourComponents = DateComponents()
