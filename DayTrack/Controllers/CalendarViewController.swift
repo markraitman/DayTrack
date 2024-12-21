@@ -25,6 +25,7 @@ class CalendarViewController: DayViewController  {
         title = "DayTrack"
         
         requestAccessToCalendar()
+        subscribeToNotifications()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,13 +50,19 @@ class CalendarViewController: DayViewController  {
         let eventKitEvents = eventStore.events(matching: predicate)
         
         let calendarKitEvents = eventKitEvents.map(EKWrapper.init)
-
+        
         return calendarKitEvents
-        
-        
     }
     
-
-
+    private func subscribeToNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(storeChanged(_:)), name: .EKEventStoreChanged, object: eventStore)
+    }
+    
+    @objc private func storeChanged(_ notification: Notification) {
+        reloadData()
+    }
+    
+    
+    
 }
 
