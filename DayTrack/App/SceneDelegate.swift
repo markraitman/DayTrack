@@ -22,7 +22,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
+        
         let navigationController = UINavigationController(rootViewController: CalendarViewController())
+        
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.shadowColor = nil
+        
+        let navigationBar = navigationController.navigationBar
+        navigationBar.standardAppearance = appearance
+        navigationBar.scrollEdgeAppearance = appearance
+        
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }

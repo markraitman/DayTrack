@@ -22,21 +22,14 @@ class CalendarViewController: DayViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Calendar"
+        title = "DayTrack"
         
         requestAccessToCalendar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-        
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = .white
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.backgroundColor = .white
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.setToolbarHidden(true, animated: false)
     }
     
     
@@ -45,6 +38,21 @@ class CalendarViewController: DayViewController  {
         eventStore.requestAccess(to: .event) {success, error in
             
         }
+    }
+    
+    override func eventsForDate(_ date: Date) -> [any EventDescriptor] {
+        let startDate = date
+        var oneDayComponents = DateComponents()
+        oneDayComponents.day = 1
+        let endDate = calendar.date(byAdding: oneDayComponents, to: startDate)!
+        let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: nil)
+        let eventKitEvents = eventStore.events(matching: predicate)
+        
+        let calendarKitEvents = eventKitEvents.map(EKWrapper.init)
+
+        return calendarKitEvents
+        
+        
     }
     
 
