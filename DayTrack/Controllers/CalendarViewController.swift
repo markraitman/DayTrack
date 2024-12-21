@@ -74,7 +74,28 @@ class CalendarViewController: DayViewController  {
         navigationController?.pushViewController(eventViewController, animated: true)
     }
     
+    override func dayViewDidLongPressEventView(_ eventView: EventView) {
+        endEventEditing()
+        guard let ckEvent = eventView.descriptor as? EKWrapper else { return }
+        beginEditing(event: ckEvent, animated: true)
+    }
     
+    override func dayView(dayView: DayView, didUpdate event: any EventDescriptor) {
+        guard let editingEvent = event as? EKWrapper else { return }
+        if let originalEvent = event.editedEvent {
+            editingEvent.commitEditing()
+            
+            try! eventStore.save(editingEvent.ekEvent, span: .thisEvent)
+        }
+        reloadData()
+    }
+    
+    override func dayView(dayView: DayView, didTapTimelineAt date: Date) {
+        endEventEditing()
+    }
+    
+    override func dayViewDidBeginDragging(dayView: DayView) {
+        endEventEditing()
+    }
     
 }
-
