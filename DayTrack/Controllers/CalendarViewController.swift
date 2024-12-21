@@ -8,6 +8,7 @@
 import UIKit
 import CalendarKit
 import EventKit
+import EventKitUI
 
 class CalendarViewController: DayViewController  {
     
@@ -60,6 +61,17 @@ class CalendarViewController: DayViewController  {
     
     @objc private func storeChanged(_ notification: Notification) {
         reloadData()
+    }
+    
+    override func dayViewDidSelectEventView(_ eventView: EventView) {
+        guard let ckEvent = eventView.descriptor as? EKWrapper else { return }
+        
+        let ekEvent = ckEvent.ekEvent
+        let eventViewController = EKEventViewController()
+        eventViewController.event = ekEvent
+        eventViewController.allowsCalendarPreview = true
+        eventViewController.allowsEditing = true
+        navigationController?.pushViewController(eventViewController, animated: true)
     }
     
     
