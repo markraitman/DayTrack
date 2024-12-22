@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        let navigationController = UINavigationController(rootViewController: CalendarViewController())
+        let navigationController = UINavigationController(rootViewController: DayTrackViewController())
         
         
         let appearance = UINavigationBarAppearance()
