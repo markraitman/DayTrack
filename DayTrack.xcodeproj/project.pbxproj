@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49F184C21A61B7B34A1BD021 /* Pods_DayTrackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 855CC7C4D913D35480E9EDB2 /* Pods_DayTrackTests.framework */; };
 		4F9569E9EB542C33EF7DA3AE /* Pods_DayTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A189C3E393884653166A1BB /* Pods_DayTrack.framework */; };
-		A229F0802D15890C00302C65 /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = A229F07F2D15890C00302C65 /* CalendarKit */; };
-		FEF7C46B5AAA5CB69BEC8ED3 /* Pods_DayTrack_DayTrackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D62A80EB5E501DBC0E3B59 /* Pods_DayTrack_DayTrackUITests.framework */; };
+		A229F1D62D18412100302C65 /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = A229F1D52D18412100302C65 /* CalendarKit */; };
+		A229F3132D1984DA00302C65 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A229F3122D1984DA00302C65 /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,17 +30,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07D62A80EB5E501DBC0E3B59 /* Pods_DayTrack_DayTrackUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DayTrack_DayTrackUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CCF103E36DFFAC3F8EFC533 /* Pods-DayTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTrack.release.xcconfig"; path = "Target Support Files/Pods-DayTrack/Pods-DayTrack.release.xcconfig"; sourceTree = "<group>"; };
-		855CC7C4D913D35480E9EDB2 /* Pods_DayTrackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DayTrackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B0F8482B8EACEB75E9DBE3E /* Pods-DayTrackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTrackTests.release.xcconfig"; path = "Target Support Files/Pods-DayTrackTests/Pods-DayTrackTests.release.xcconfig"; sourceTree = "<group>"; };
 		9A189C3E393884653166A1BB /* Pods_DayTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DayTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A229F3122D1984DA00302C65 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A27641F42D10A34900839B5A /* DayTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A276420A2D10A34B00839B5A /* DayTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DayTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A27642142D10A34B00839B5A /* DayTrackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DayTrackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABB29182B97BE649FDA6082F /* Pods-DayTrack-DayTrackUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTrack-DayTrackUITests.debug.xcconfig"; path = "Target Support Files/Pods-DayTrack-DayTrackUITests/Pods-DayTrack-DayTrackUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		CE22C8D33D2BDC92298B8915 /* Pods-DayTrack-DayTrackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTrack-DayTrackUITests.release.xcconfig"; path = "Target Support Files/Pods-DayTrack-DayTrackUITests/Pods-DayTrack-DayTrackUITests.release.xcconfig"; sourceTree = "<group>"; };
-		EFDBCC074C1DF431DF2D58C7 /* Pods-DayTrackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTrackTests.debug.xcconfig"; path = "Target Support Files/Pods-DayTrackTests/Pods-DayTrackTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FB2BDF9676C650278A1A656E /* Pods-DayTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DayTrack.debug.xcconfig"; path = "Target Support Files/Pods-DayTrack/Pods-DayTrack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,15 +60,11 @@
 		};
 		A276420D2D10A34B00839B5A /* DayTrackTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = DayTrackTests;
 			sourceTree = "<group>";
 		};
 		A27642172D10A34B00839B5A /* DayTrackUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = DayTrackUITests;
 			sourceTree = "<group>";
 		};
@@ -85,8 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A229F0802D15890C00302C65 /* CalendarKit in Frameworks */,
 				4F9569E9EB542C33EF7DA3AE /* Pods_DayTrack.framework in Frameworks */,
+				A229F1D62D18412100302C65 /* CalendarKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49F184C21A61B7B34A1BD021 /* Pods_DayTrackTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEF7C46B5AAA5CB69BEC8ED3 /* Pods_DayTrack_DayTrackUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,18 +102,14 @@
 			children = (
 				FB2BDF9676C650278A1A656E /* Pods-DayTrack.debug.xcconfig */,
 				1CCF103E36DFFAC3F8EFC533 /* Pods-DayTrack.release.xcconfig */,
-				ABB29182B97BE649FDA6082F /* Pods-DayTrack-DayTrackUITests.debug.xcconfig */,
-				CE22C8D33D2BDC92298B8915 /* Pods-DayTrack-DayTrackUITests.release.xcconfig */,
-				EFDBCC074C1DF431DF2D58C7 /* Pods-DayTrackTests.debug.xcconfig */,
-				8B0F8482B8EACEB75E9DBE3E /* Pods-DayTrackTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		A27641EB2D10A34900839B5A = {
 			isa = PBXGroup;
 			children = (
+				A229F3122D1984DA00302C65 /* .swiftlint.yml */,
 				A27641F62D10A34900839B5A /* DayTrack */,
 				A276420D2D10A34B00839B5A /* DayTrackTests */,
 				A27642172D10A34B00839B5A /* DayTrackUITests */,
@@ -149,8 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				9A189C3E393884653166A1BB /* Pods_DayTrack.framework */,
-				07D62A80EB5E501DBC0E3B59 /* Pods_DayTrack_DayTrackUITests.framework */,
-				855CC7C4D913D35480E9EDB2 /* Pods_DayTrackTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,10 +145,10 @@
 			buildConfigurationList = A276421D2D10A34B00839B5A /* Build configuration list for PBXNativeTarget "DayTrack" */;
 			buildPhases = (
 				759731590053E7B4E99C3A35 /* [CP] Check Pods Manifest.lock */,
+				A229F2D82D196B4000302C65 /* ShellScript */,
 				A27641F02D10A34900839B5A /* Sources */,
 				A27641F12D10A34900839B5A /* Frameworks */,
 				A27641F22D10A34900839B5A /* Resources */,
-				99731E44FF191537D5D89060 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,7 +159,7 @@
 			);
 			name = DayTrack;
 			packageProductDependencies = (
-				A229F07F2D15890C00302C65 /* CalendarKit */,
+				A229F1D52D18412100302C65 /* CalendarKit */,
 			);
 			productName = DayTrack;
 			productReference = A27641F42D10A34900839B5A /* DayTrack.app */;
@@ -187,7 +169,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A27642222D10A34B00839B5A /* Build configuration list for PBXNativeTarget "DayTrackTests" */;
 			buildPhases = (
-				48456E7A54C4DA48D0918586 /* [CP] Check Pods Manifest.lock */,
 				A27642062D10A34B00839B5A /* Sources */,
 				A27642072D10A34B00839B5A /* Frameworks */,
 				A27642082D10A34B00839B5A /* Resources */,
@@ -209,11 +190,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A27642252D10A34B00839B5A /* Build configuration list for PBXNativeTarget "DayTrackUITests" */;
 			buildPhases = (
-				7FBC8E148A9137C4ED11383B /* [CP] Check Pods Manifest.lock */,
 				A27642102D10A34B00839B5A /* Sources */,
 				A27642112D10A34B00839B5A /* Frameworks */,
 				A27642122D10A34B00839B5A /* Resources */,
-				269899406F5A1D4E5C057A8C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -261,7 +240,7 @@
 			mainGroup = A27641EB2D10A34900839B5A;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				A229F07E2D15880700302C65 /* XCRemoteSwiftPackageReference "CalendarKit" */,
+				A229F1D42D18412100302C65 /* XCRemoteSwiftPackageReference "CalendarKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A27641F52D10A34900839B5A /* Products */;
@@ -280,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A229F3132D1984DA00302C65 /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,45 +280,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		269899406F5A1D4E5C057A8C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DayTrack-DayTrackUITests/Pods-DayTrack-DayTrackUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DayTrack-DayTrackUITests/Pods-DayTrack-DayTrackUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DayTrack-DayTrackUITests/Pods-DayTrack-DayTrackUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		48456E7A54C4DA48D0918586 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DayTrackTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		759731590053E7B4E99C3A35 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -361,44 +302,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7FBC8E148A9137C4ED11383B /* [CP] Check Pods Manifest.lock */ = {
+		A229F2D82D196B4000302C65 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DayTrack-DayTrackUITests-checkManifestLockResult.txt",
+				"$(PROJECT_DIR)/path/to/output/file",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		99731E44FF191537D5D89060 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DayTrack/Pods-DayTrack-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DayTrack/Pods-DayTrack-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DayTrack/Pods-DayTrack-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -545,7 +466,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -608,7 +529,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -629,7 +550,6 @@
 		};
 		A27642232D10A34B00839B5A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFDBCC074C1DF431DF2D58C7 /* Pods-DayTrackTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -649,7 +569,6 @@
 		};
 		A27642242D10A34B00839B5A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B0F8482B8EACEB75E9DBE3E /* Pods-DayTrackTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -669,7 +588,6 @@
 		};
 		A27642262D10A34B00839B5A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABB29182B97BE649FDA6082F /* Pods-DayTrack-DayTrackUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -687,7 +605,6 @@
 		};
 		A27642272D10A34B00839B5A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE22C8D33D2BDC92298B8915 /* Pods-DayTrack-DayTrackUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -745,7 +662,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A229F07E2D15880700302C65 /* XCRemoteSwiftPackageReference "CalendarKit" */ = {
+		A229F1D42D18412100302C65 /* XCRemoteSwiftPackageReference "CalendarKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/richardtop/CalendarKit.git";
 			requirement = {
@@ -756,9 +673,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A229F07F2D15890C00302C65 /* CalendarKit */ = {
+		A229F1D52D18412100302C65 /* CalendarKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A229F07E2D15880700302C65 /* XCRemoteSwiftPackageReference "CalendarKit" */;
+			package = A229F1D42D18412100302C65 /* XCRemoteSwiftPackageReference "CalendarKit" */;
 			productName = CalendarKit;
 		};
 /* End XCSwiftPackageProductDependency section */
