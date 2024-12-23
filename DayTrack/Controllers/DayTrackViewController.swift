@@ -13,7 +13,7 @@ import EventKitUI
 class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
 
     // MARK: - Properties
-    private let eventStore = EKEventStore()
+    private let taskService = TaskService()
 
     // MARK: - UI Components
 
@@ -36,27 +36,29 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
 
     /// Access to Apple Calendar app
     func requestAccessToCalendar() {
-        eventStore.requestAccess(to: .event) { _, _ in
-            // Handle success or error here if needed
+            taskService.requestAccess { success, _ in
+                if success {
+                    // Access granted, handle accordingly
+                } else {
+                    // Handle the error if needed
+                }
+            }
         }
-    }
 
     /// Fetching tasks
     override func eventsForDate(_ date: Date) -> [any EventDescriptor] {
         let startDate = date
         var oneDayComponents = DateComponents()
         oneDayComponents.day = 1
-        let endDate = calendar.date(byAdding: oneDayComponents, to: startDate)!
-        let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: nil)
-        let eventKitEvents = eventStore.events(matching: predicate)
-        let calendarKitEvents = eventKitEvents.map(EKWrapper.init)
+        let events = taskService.fetchEvents(for: date)
+        let calendarKitEvents = events.map(EKWrapper.init)
 
         return calendarKitEvents
     }
 
     /// Notifications fo task changes
     private func subscribeToNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(storeChanged(_:)), name: .EKEventStoreChanged, object: eventStore)
+        NotificationCenter.default.addObserver(self, selector: #selector(storeChanged(_:)), name: .EKEventStoreChanged, object: taskService.getEventStore())
     }
     @objc private func storeChanged(_ notification: Notification) {
         reloadData()
@@ -95,7 +97,7 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
                 presentEditingViewForEvent(editingEvent.ekEvent)
             } else {
                 do {
-                    try eventStore.save(editingEvent.ekEvent, span: .thisEvent)
+                    try taskService.saveEvent(editingEvent.ekEvent)
                 } catch {
                     print("Failed to save event: \(error.localizedDescription)")
                 }
@@ -106,7 +108,7 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
     private func presentEditingViewForEvent(_ ekEvent: EKEvent) {
         let eventEditViewController = EKEventEditViewController()
         eventEditViewController.event = ekEvent
-        eventEditViewController.eventStore = eventStore
+        eventEditViewController.eventStore = taskService.getEventStore()
         eventEditViewController.editViewDelegate = self
         present(eventEditViewController, animated: true, completion: nil)
     }
@@ -128,19 +130,9 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
 
     /// Creating new task
     override func dayView(dayView: DayView, didLongPressTimelineAt date: Date) {
-        let newEKEvent = EKEvent(eventStore: eventStore)
-        newEKEvent.calendar = eventStore.defaultCalendarForNewEvents
+        let newEvent = taskService.createEvent(startDate: date, duration: 3600, title: "New Task")
 
-        var oneHourComponents = DateComponents()
-        oneHourComponents.hour = 1
-
-        let endDate = Calendar.current.date(byAdding: oneHourComponents, to: date)!
-
-        newEKEvent.startDate = date
-        newEKEvent.endDate = endDate
-        newEKEvent.title = "New Event"
-
-        let newEKWrapper = EKWrapper(eventKitEvent: newEKEvent)
+        let newEKWrapper = EKWrapper(eventKitEvent: newEvent)
         newEKWrapper.editedEvent = newEKWrapper
 
         create(event: newEKWrapper, animated: true)
