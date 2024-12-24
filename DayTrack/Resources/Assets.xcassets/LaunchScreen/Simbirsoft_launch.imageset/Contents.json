@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Simbirsoft_launch.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
