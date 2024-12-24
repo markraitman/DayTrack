@@ -41,7 +41,7 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
     }
 
     // MARK: - Methods
-    
+
     // MARK: Calendar Access
     func requestAccessToCalendar() {
             taskService.requestAccess { success, _ in
@@ -52,7 +52,7 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
                 }
             }
         }
-    
+
     // MARK: Notifications
     private func subscribeToNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(storeChanged(_:)), name: .EKEventStoreChanged, object: taskService.getEventStore())
@@ -142,7 +142,7 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
 
         create(event: newEKWrapper, animated: true)
     }
-    
+
     /// Dismissing editing view controller after "cancel" or "done"
     func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
         endEventEditing()
