@@ -15,14 +15,17 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
     // MARK: - Properties
     private let taskService = TaskService()
 
-    // MARK: - UI Components
-
     // MARK: - Lifecycle
+    /// Installing custom view
+    override func loadView() {
+        let customView = DayTrackView()
+        self.view = customView
+        self.dayView = customView.dayView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = "DayTrack"
-
+        setupController()
         requestAccessToCalendar()
         subscribeToNotifications()
     }
@@ -32,8 +35,12 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
         navigationController?.setToolbarHidden(true, animated: false)
     }
 
-    // MARK: - Methods
+    // MARK: - Setup
+    private func setupController() {
+        title = "DayTrack"
+    }
 
+    // MARK: - Methods
     /// Access to Apple Calendar app
     func requestAccessToCalendar() {
             taskService.requestAccess { success, _ in
@@ -47,7 +54,6 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
 
     /// Fetching tasks
     override func eventsForDate(_ date: Date) -> [any EventDescriptor] {
-        let startDate = date
         var oneDayComponents = DateComponents()
         oneDayComponents.day = 1
         let events = taskService.fetchEvents(for: date)
