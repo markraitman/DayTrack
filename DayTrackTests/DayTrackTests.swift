@@ -6,31 +6,62 @@
 //
 
 import XCTest
+import EventKit
 @testable import DayTrack
 
 final class DayTrackTests: XCTestCase {
 
+    var taskService: TaskService!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        taskService = TaskService()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        taskService = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+    class MockEventStore: EKEventStore {
+        var savedEvents: [EKEvent] = []
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        override func save(_ event: EKEvent, span: EKSpan, commit: Bool) throws {
+            savedEvents.append(event)
         }
     }
 
+    func testSaveEvent() throws {
+        // Given
+        let mockEventStore = MockEventStore()
+        let taskService = TaskService(eventStore: mockEventStore)
+        
+        let event = EKEvent(eventStore: mockEventStore)
+        event.title = "Test Event"
+        
+        // When
+        try taskService.saveEvent(event)
+        
+        // Then
+        XCTAssertEqual(mockEventStore.savedEvents.count, 1, "The event must be saved")
+        XCTAssertEqual(mockEventStore.savedEvents.first?.title, "Test Event", "The title of the saved event must be 'Test Event'")
+    }
+
+    func testCreateEvent() throws {
+        // Given
+        let startDate = Date()
+        let duration: TimeInterval = 3600
+        let title = "Test Event"
+        
+        // When
+        let event = taskService.createEvent(startDate: startDate, duration: duration, title: title)
+        
+        // Then
+        XCTAssertEqual(event.title, title, "The event header must matc")
+        XCTAssertEqual(event.endDate.timeIntervalSince(event.startDate), duration, "The duration of the event should coincide")
+        
+        // Comparing only the date components
+        let calendar = Calendar.current
+        let startComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: startDate)
+        let eventComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: event.startDate)
+        XCTAssertEqual(startComponents, eventComponents, "The start date of the event must match to the second")
+    }
 }

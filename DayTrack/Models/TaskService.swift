@@ -9,8 +9,15 @@ import Foundation
 import EventKit
 
 final class TaskService {
-    let eventStore = EKEventStore()
+    // MARK: - Init
+    init(eventStore: EKEventStore = EKEventStore()) {
+            self.eventStore = eventStore
+        }
 
+    // MARK: - Properties
+    var eventStore = EKEventStore()
+
+    // MARK: - Methods
     /// Requests access to the calendar
     func requestAccess(completion: @escaping (Bool, Error?) -> Void) {
         eventStore.requestAccess(to: .event) { success, error in
