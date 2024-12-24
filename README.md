@@ -38,6 +38,7 @@
 * Architectural pattern - MVC
 * Data storage - EventStore
 * Dependency Injections
+* Day/Night switch themes app appearance
 
 ---
 
