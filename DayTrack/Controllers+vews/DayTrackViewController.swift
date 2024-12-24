@@ -41,7 +41,8 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
     }
 
     // MARK: - Methods
-    /// Access to Apple Calendar app
+    
+    // MARK: Calendar Access
     func requestAccessToCalendar() {
             taskService.requestAccess { success, _ in
                 if success {
@@ -51,18 +52,8 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
                 }
             }
         }
-
-    /// Fetching tasks
-    override func eventsForDate(_ date: Date) -> [any EventDescriptor] {
-        var oneDayComponents = DateComponents()
-        oneDayComponents.day = 1
-        let events = taskService.fetchEvents(for: date)
-        let calendarKitEvents = events.map(EKWrapper.init)
-
-        return calendarKitEvents
-    }
-
-    /// Notifications fo task changes
+    
+    // MARK: Notifications
     private func subscribeToNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(storeChanged(_:)), name: .EKEventStoreChanged, object: taskService.getEventStore())
     }
@@ -72,6 +63,17 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
         if let topController = navigationController?.topViewController, topController is EKEventViewController {
             navigationController?.popViewController(animated: true)
         }
+    }
+
+    // MARK: Event Handling
+    /// Fetching tasks
+    override func eventsForDate(_ date: Date) -> [any EventDescriptor] {
+        var oneDayComponents = DateComponents()
+        oneDayComponents.day = 1
+        let events = taskService.fetchEvents(for: date)
+        let calendarKitEvents = events.map(EKWrapper.init)
+
+        return calendarKitEvents
     }
 
     /// Day task selection and display
@@ -93,7 +95,7 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
         beginEditing(event: ckEvent, animated: true)
     }
 
-    /// Task editing
+    /// Task update
     override func dayView(dayView: DayView, didUpdate event: any EventDescriptor) {
         guard let editingEvent = event as? EKWrapper else { return }
         if let originalEvent = event.editedEvent {
@@ -111,6 +113,8 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
         }
         reloadData()
     }
+
+    /// Event editing
     private func presentEditingViewForEvent(_ ekEvent: EKEvent) {
         let eventEditViewController = EKEventEditViewController()
         eventEditViewController.event = ekEvent
@@ -119,17 +123,12 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
         present(eventEditViewController, animated: true, completion: nil)
     }
 
-    /// Dismissing editing view controller after "cancel" or "done"
-    func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
-        endEventEditing()
-        reloadData()
-        controller.dismiss(animated: true, completion: nil)
-    }
-
+    /// Event selection
     override func dayView(dayView: DayView, didTapTimelineAt date: Date) {
         endEventEditing()
     }
 
+    /// Event dragging
     override func dayViewDidBeginDragging(dayView: DayView) {
         endEventEditing()
     }
@@ -142,5 +141,12 @@ class DayTrackViewController: DayViewController, EKEventEditViewDelegate {
         newEKWrapper.editedEvent = newEKWrapper
 
         create(event: newEKWrapper, animated: true)
+    }
+    
+    /// Dismissing editing view controller after "cancel" or "done"
+    func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+        endEventEditing()
+        reloadData()
+        controller.dismiss(animated: true, completion: nil)
     }
 }
